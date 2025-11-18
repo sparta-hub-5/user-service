@@ -7,8 +7,8 @@ import org.springframework.web.client.HttpStatusCodeException;
 @Getter
 public class ApplicationException extends HttpStatusCodeException {
 
-    private String code;
-    private String message;
+    private final String code;
+    private final String message;
 
     public ApplicationException(ErrorCode errorCode) {
         super(errorCode.getHttpStatus());
