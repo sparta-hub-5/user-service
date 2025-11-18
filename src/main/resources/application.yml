@@ -1,0 +1,32 @@
+server:
+  port: 3010
+
+spring:
+  application:
+    name: user-service
+  config:
+    import: 'optional:configserver:'
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: localhost
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:3150/eureka/
+
+keycloak:
+  server-url: http://localhost:8180
+  realm: myRealm
+  client-id: myClient
+  client-secret: secret123 (env화)
+  admin-username: admin
+  admin-password: pass
