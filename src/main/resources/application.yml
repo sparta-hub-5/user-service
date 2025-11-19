@@ -21,11 +21,11 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:3150/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 keycloak:
-  server-url: http://localhost:8180
-  realm: myRealm
+  server-url: https://keycloak.code-factory.co.kr/
+  realm: bangbang-hub
   client-id: ${KEYCLOAK_CLIENT_ID}
   client-secret: ${KEYCLOAK_CLIENT_SECRET}
   admin-username: ${KEYCLOAK_ADMIN_USERNAME}
