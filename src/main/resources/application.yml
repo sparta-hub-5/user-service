@@ -4,14 +4,21 @@ server:
 spring:
   application:
     name: user-service
+
   config:
     import: 'optional:configserver:'
+
   cloud:
     config:
       discovery:
         enabled: true
         service-id: config-server
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
 eureka:
   instance:
     prefer-ip-address: false
