@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      enabled: false   # ❌ Config 서버 아예 안 사용
+  config:
+    import:
+      optional:
+
+logging:
+  level:
+    org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver: ERROR
