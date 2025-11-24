@@ -60,7 +60,17 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation 'com.github.hiho1010:msa-common:v0.0.9'
+    implementation('com.github.hiho1010:msa-common:v0.1.2') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+
+    // ✅ CommonKafkaConfig 에서 사용하는 Spring Messaging
+    implementation 'org.springframework:spring-messaging'
+
+    // ✅ 우리가 예전에 설계했던 StreamBridge 기반 공통 Kafka 모듈을 쓴다면:
+    implementation 'org.springframework.cloud:spring-cloud-stream'
+    implementation 'org.springframework.cloud:spring-cloud-stream-binder-kafka'
 }
 
 tasks.named('test') {

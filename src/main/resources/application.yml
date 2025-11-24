@@ -1,24 +1,17 @@
 server:
-  port: 3010
+  port: 5555
 
 spring:
   application:
     name: user-service
-
   config:
     import: 'optional:configserver:'
-
   cloud:
     config:
       discovery:
         enabled: true
         service-id: config-server
 
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: ${JWT_ISSUER_URI}
 eureka:
   instance:
     prefer-ip-address: false
@@ -28,12 +21,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
-
-keycloak:
-  server-url: https://keycloak.code-factory.co.kr/
-  realm: bangbang-hub
-  client-id: ${KEYCLOAK_CLIENT_ID}
-  client-secret: ${KEYCLOAK_CLIENT_SECRET}
-  admin-username: ${KEYCLOAK_ADMIN_USERNAME}
-  admin-password: ${KEYCLOAK_ADMIN_PASSWORD}
+      defaultZone: http://13.210.162.214:3150/eureka/
